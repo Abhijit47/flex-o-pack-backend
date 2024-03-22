@@ -1,0 +1,51 @@
+  {
+    id: crypto.randomUUID(),
+    itemName: "Servo Auger Filler Packaging Maching",
+    subCategory: "",
+    modelNo: "FP-501-C",
+    coverImage: "",
+    image: "/products/FP-501-C.jpg",
+    images: [],
+    specification: {
+      products: [
+        "Besan",
+        "Maida",
+        "Milk Powder",
+        "Spices powder",
+        "free flowing powder",
+      ],
+      noOfTracks: "",
+      weighHeadNos: [],
+      feedingStyle: "",
+      fillingSystem: [
+        "Screw Feeder"
+      ],
+      fillingAccuracy: "+1-1.5%",
+      sealType: [
+        "Centre Seal",
+        "Back Seal"
+      ],
+      fillingRange: "25 gm upto 1000 gm",
+      packingMaterial: [
+        "Heat Sealable Laminated Films"
+      ],
+      laminateSpecs: [],
+      lengthOfPouch: "",
+      pouchDimensions: [
+        "Width 60-200mm",
+        "Length 50-300mm"
+      ],
+      powerConsumption: [
+        "5.5 KW , Single Phase"
+      ],
+      compressedAirRequired: "6CFM@6 Bar (2 H.P. Compressor)",
+      touchScreen: "",
+      productionOutput: "20-75 pouches per minute",
+      Weight: "650Kg (apprx.)",
+      materialOfChasis: "",
+      hopper: [],
+      conveyor: "",
+      thicknessOfBucket: "",
+      machineSize: "L-1824mm, W-1200mm, H-2600mm (Apprx.)",
+    },
+  },
