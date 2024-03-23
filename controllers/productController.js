@@ -74,7 +74,7 @@ exports.deleteProduct = async(req,res,next)=>{
       return res.status(400).send("Product Not Found");
     }else{
       product.remove();
-      res.status(200).send("Product Removed Succesfullly",id);
+      res.status(200).send("Product Removed Succesfully",id);
     }
 
 
@@ -83,7 +83,7 @@ exports.deleteProduct = async(req,res,next)=>{
   }
 };
 
-exports.updateCourse = async(req,res,next)=>{
+exports.updateProduct = async(req,res,next)=>{
   const {id} = req.params.id;
   const data = req.body;
 
