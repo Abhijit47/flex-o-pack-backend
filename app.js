@@ -12,10 +12,13 @@ app.get('/', (req, res) => {
   res.status(200).json({ status: 'success', message: 'Welcome route' });
 });
 
-app.use('/api/v1', productRouter);
+app.use('/api/v1/product', productRouter);
 
 app.all('*', (req, res, next) => {
-  return res.status(500).json(`Could not found ${req.originalUrl} on this app`);
+  return res.status(500).json({
+    status: 'fail',
+    message: `Can't find ${req.originalUrl} on this server`,
+  });
 });
 
 module.exports = app;
