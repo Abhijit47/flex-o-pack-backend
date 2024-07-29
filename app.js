@@ -5,6 +5,8 @@ const morgan = require('morgan');
 
 const productRouter = require('./routes/productRoutes');
 const userRouter = require('./routes/userRoutes');
+const blogRouter = require('./routes/blogRoutes');
+const commentRouter = require('./routes/commentRoutes');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 
@@ -34,6 +36,8 @@ app.get('/', (req, res) => {
 // Routes
 app.use('/api/v1/product', productRouter);
 app.use('/api/v1/user', userRouter);
+app.use('/api/v1/blog', blogRouter);
+app.use('/api/v1/comment', commentRouter);
 
 // error handler
 app.all('*', (req, res, next) => {

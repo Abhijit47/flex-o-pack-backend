@@ -41,8 +41,19 @@ const userSchema = new Schema(
   {
     timestamps: true,
     versionKey: false,
+    // virtuals: true,
   }
 );
+
+userSchema.virtual('fullName').get(function () {
+  return `${this.firstName} ${this.lastName}`;
+});
+
+// userSchema.virtualpath('blogs', {
+//   ref: 'Blog',
+//   foreignField: 'author',
+//   localField: '_id',
+// });
 
 // Schema methods to hash the password before saving
 userSchema.pre('save', async function (next) {

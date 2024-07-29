@@ -1,8 +1,8 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 
-const { ObjectId } = Schema.Types;
+const { ObjectId } = mongoose.Schema.Types;
 
-const blogSchema = new Schema(
+const blogSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -12,11 +12,29 @@ const blogSchema = new Schema(
       type: String,
       required: [true, 'A blog must have a content'],
     },
+    cover: {
+      type: String,
+      required: [true, 'A blog must have a cover image'],
+    },
+    tags: {
+      type: [String],
+      required: [true, 'A blog must have tags'],
+    },
+    images: {
+      type: [String],
+      default: [],
+    },
     author: {
       type: ObjectId,
       ref: 'User',
       required: [true, 'A blog must have a user'],
     },
+    comments: [
+      {
+        type: ObjectId,
+        ref: 'Comment',
+      },
+    ],
   },
   {
     timestamps: true,
@@ -24,6 +42,15 @@ const blogSchema = new Schema(
   }
 );
 
-const Blog = model('Blog', blogSchema);
+blogSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'author',
+    select: 'firstName lastName email',
+  });
+
+  next();
+});
+
+const Blog = mongoose.model('Blog', blogSchema);
 
 module.exports = Blog;
