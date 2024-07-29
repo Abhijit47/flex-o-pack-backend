@@ -1,12 +1,18 @@
 const { Schema, model } = require('mongoose');
-const productsItem = require('../utils/index');
+const { productItems } = require('../utils/index');
+
+const { ObjectId } = Schema.Types;
 
 const specificationSchema = new Schema(
   {
+    productId: {
+      type: ObjectId,
+      ref: 'Product',
+    },
     products: {
       type: [String],
       enum: {
-        values: productsItem,
+        values: productItems,
         message: '{VALUE} is not supported',
       },
     },
@@ -16,7 +22,7 @@ const specificationSchema = new Schema(
     },
     weighHeadNos: {
       type: Array,
-      default: 'n/a',
+      default: ['n/a'],
     },
     feedingStyle: {
       type: String,
@@ -24,7 +30,7 @@ const specificationSchema = new Schema(
     },
     fillingSystem: {
       type: Array,
-      default: 'n/a',
+      default: ['n/a'],
     },
     fillingAccuracy: {
       type: String,
@@ -32,7 +38,7 @@ const specificationSchema = new Schema(
     },
     sealType: {
       type: Array,
-      default: 'n/a',
+      default: ['n/a'],
     },
     fillingRange: {
       type: String,
@@ -40,11 +46,11 @@ const specificationSchema = new Schema(
     },
     packingMaterial: {
       type: Array,
-      default: 'n/a',
+      default: ['n/a'],
     },
     laminateSpecs: {
       type: Array,
-      default: 'n/a',
+      default: ['n/a'],
     },
     lengthOfPouch: {
       type: String,
@@ -52,11 +58,11 @@ const specificationSchema = new Schema(
     },
     pouchDimensions: {
       type: Array,
-      default: 'n/a',
+      default: ['n/a'],
     },
     powerConsumption: {
       type: Array,
-      default: 'n/a',
+      default: ['n/a'],
     },
     compressedAirRequired: {
       type: String,
@@ -80,7 +86,7 @@ const specificationSchema = new Schema(
     },
     hopper: {
       type: Array,
-      default: 'n/a',
+      default: ['n/a'],
     },
     conveyor: {
       type: String,
@@ -92,7 +98,7 @@ const specificationSchema = new Schema(
     },
     machineSize: {
       type: Array,
-      default: 'n/a',
+      default: ['n/a'],
     },
   },
   { versionKey: false, timestamps: true }

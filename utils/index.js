@@ -1,4 +1,29 @@
-module.exports = [
+const specifications = [
+  'products',
+  'noOfTracks',
+  'weighHeadNos',
+  'feedingStyle',
+  'fillingSystem',
+  'fillingAccuracy',
+  'sealType',
+  'fillingRange',
+  'packingMaterial',
+  'laminateSpecs',
+  'lengthOfPouch',
+  'pouchDimensions',
+  'powerConsumption',
+  'compressedAirRequired',
+  'touchScreen',
+  'productionOutput',
+  'weight',
+  'materialOfChasis',
+  'hopper',
+  'conveyor',
+  'thicknessOfBucket',
+  'machineSize',
+];
+
+const productItems = [
   'namkeen',
   'pulses',
   'granules',
@@ -30,3 +55,5 @@ module.exports = [
   'powder',
   'liquid',
 ];
+
+module.exports = { specifications, productItems };

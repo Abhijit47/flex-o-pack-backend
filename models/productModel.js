@@ -1,4 +1,7 @@
 const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
+
+const { ObjectId } = Schema.Types;
 
 const productSchema = new Schema(
   {
@@ -25,12 +28,17 @@ const productSchema = new Schema(
       type: Array,
     },
     specifications: {
-      type: String,
+      type: ObjectId,
       ref: 'Specifications',
     },
   },
   { versionKey: false, timestamps: true }
 );
+
+// This method checks if the product id is valid or not
+productSchema.methods.checkProductId = function (id) {
+  return mongoose.Types.ObjectId.isValid(id);
+};
 
 const Product = model('Product', productSchema);
 module.exports = Product;
