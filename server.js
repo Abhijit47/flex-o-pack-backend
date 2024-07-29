@@ -32,7 +32,7 @@ mongoose
 
     switch (res.STATES[res.connection.readyState]) {
       case 'connected':
-        console.log('Database connected successfully');
+        console.log('Database connected 🥳');
         break;
       case 'connecting':
         console.log('Database connecting...');
@@ -58,5 +58,5 @@ mongoose
   });
 
 app.listen(PORT, () => {
-  console.log(`server started successfully on ${PORT}`);
+  console.log(`app running on ${PORT}`);
 });
