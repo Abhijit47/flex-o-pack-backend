@@ -83,7 +83,11 @@ exports.getBlogs = catchAsync(async (req, res, next) => {
   }
 
   // if not in the cache, get the blogs from the database
-  const blogs = await Blog.find({}).lean().select('-updatedAt');
+  const blogs = await Blog.find({})
+    .lean()
+    .select('-updatedAt')
+    .populate('comments', 'name')
+    .exec();
 
   if (!blogs) {
     return next(new AppError('No blogs found', 404));

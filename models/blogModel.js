@@ -31,7 +31,7 @@ const blogSchema = new mongoose.Schema(
     },
     comments: [
       {
-        type: ObjectId,
+        type: ObjectId, // doubt here
         ref: 'Comment',
       },
     ],
@@ -50,6 +50,15 @@ blogSchema.pre(/^find/, function (next) {
 
   next();
 });
+
+// blogSchema.pre(/^find/, function (next) {
+//   this.populate({
+//     path: 'comments',
+//     select: '-updatedAt',
+//   });
+
+//   next();
+// });
 
 const Blog = mongoose.model('Blog', blogSchema);
 
